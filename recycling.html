@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycling Efficiency Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Recycling Efficiency Tracker</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="carbon.html">Carbon Calculator</a></li>
+            <li><a href="tips.html">Tips Generator</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Track Your Recycling Efficiency</h2>
+            <form id="recyclingForm">
+                <label for="totalWaste">Total Waste Produced (kg/week):</label>
+                <input type="number" id="totalWaste" required><br>
+                <label for="recycledWaste">Recycled Waste (kg/week):</label>
+                <input type="number" id="recycledWaste" required><br>
+                <button type="button" onclick="calculateRecycling()">Calculate</button>
+            </form>
+            <p id="recyclingResult"></p>
+        </section>
+    </main>
+    <script>
+        function calculateRecycling() {
+            const total = parseInt(document.getElementById('totalWaste').value);
+            const recycled = parseInt(document.getElementById('recycledWaste').value);
+            const efficiency = (recycled / total) * 100;
+            document.getElementById('recyclingResult').textContent = `Your recycling efficiency is ${efficiency.toFixed(2)}%.`;
+        }
+    </script>
+</body>
+</html>
