@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability Tips Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sustainability Tips Generator</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="carbon.html">Carbon Calculator</a></li>
+            <li><a href="recycling.html">Recycling Tracker</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Get Personalized Sustainability Tips</h2>
+            <button onclick="generateTip()">Generate Tip</button>
+            <p id="tipResult"></p>
+        </section>
+    </main>
+    <script>
+        const tips = [
+            "Switch to energy-efficient appliances.",
+            "Take shorter showers to conserve water.",
+            "Use reusable shopping bags instead of plastic.",
+            "Switch off lights and devices when not in use.",
+            "Opt for public transport or carpooling.",
+        ];
+        function generateTip() {
+            const randomTip = tips[Math.floor(Math.random() * tips.length)];
+            document.getElementById('tipResult').textContent = randomTip;
+        }
+    </script>
+</body>
+</html>
