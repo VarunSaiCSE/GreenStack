@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability Insights Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f8f5;
+            color: #333;
+        }
+        header {
+            background: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: #333;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            display: block;
+        }
+        nav ul li a:hover {
+            background: #575757;
+            border-radius: 5px;
+        }
+        .feature-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .feature-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 10px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sustainability Insights Dashboard</h1>
+        <p>Empowering you to take meaningful actions for a sustainable future</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="carbon.html">Carbon Footprint Calculator</a></li>
+            <li><a href="recycling.html">Recycling Efficiency Tracker</a></li>
+            <li><a href="tips.html">Sustainability Tips Generator</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Welcome to the Sustainability Insights Dashboard</h2>
+            <p>Choose a feature to get started:</p>
+            <div class="feature-links">
+                <a class="feature-card" href="carbon.html">
+                    <h3>Carbon Footprint Calculator</h3>
+                    <p>Estimate your carbon emissions based on detailed inputs.</p>
+                </a>
+                <a class="feature-card" href="recycling.html">
+                    <h3>Recycling Efficiency Tracker</h3>
+                    <p>Track your weekly recycling efforts and progress.</p>
+                </a>
+                <a class="feature-card" href="tips.html">
+                    <h3>Sustainability Tips Generator</h3>
+                    <p>Receive actionable and personalized eco-friendly advice.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sustainability Insights Dashboard</p>
+    </footer>
+</body>
+</html>
 
