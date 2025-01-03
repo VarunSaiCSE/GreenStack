@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Carbon Footprint Calculator</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recycling.html">Recycling Tracker</a></li>
+            <li><a href="tips.html">Tips Generator</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Calculate Your Carbon Footprint</h2>
+            <form id="carbonForm">
+                <label for="milesDriven">Miles Driven (per week):</label>
+                <input type="number" id="milesDriven" required><br>
+                <label for="electricityUsage">Electricity Usage (kWh per month):</label>
+                <input type="number" id="electricityUsage" required><br>
+                <label for="meatConsumption">Meals with Meat (per week):</label>
+                <input type="number" id="meatConsumption" required><br>
+                <button type="button" onclick="calculateCarbon()">Calculate</button>
+            </form>
+            <p id="carbonResult"></p>
+        </section>
+    </main>
+    <script>
+        function calculateCarbon() {
+            const miles = parseInt(document.getElementById('milesDriven').value);
+            const electricity = parseInt(document.getElementById('electricityUsage').value);
+            const meat = parseInt(document.getElementById('meatConsumption').value);
+            const carbon = (miles * 0.411) + (electricity * 0.92) + (meat * 2.5);
+            document.getElementById('carbonResult').textContent = `Your weekly carbon footprint is approximately ${carbon.toFixed(2)} kg CO2.`;
+        }
+    </script>
+</body>
+</html>
