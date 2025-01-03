@@ -4,38 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recycling Efficiency Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f8f5;
+        }
+        header {
+            background: linear-gradient(135deg, #00796b, #004d40);
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+        .form-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .chart-container {
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            background: #004d40;
+            color: white;
+            padding: 10px 0;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <h1>Recycling Efficiency Tracker</h1>
+        <p>Track your recycling habits and monitor progress.</p>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="carbon.html">Carbon Calculator</a></li>
-            <li><a href="tips.html">Tips Generator</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h2>Track Your Recycling Efficiency</h2>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="form-container">
+            <h2>Input Your Recycling Data</h2>
             <form id="recyclingForm">
-                <label for="totalWaste">Total Waste Produced (kg/week):</label>
-                <input type="number" id="totalWaste" required><br>
-                <label for="recycledWaste">Recycled Waste (kg/week):</label>
-                <input type="number" id="recycledWaste" required><br>
-                <button type="button" onclick="calculateRecycling()">Calculate</button>
+                <div class="mb-3">
+                    <label for="plastic" class="form-label">Plastic Recycled (kg):</label>
+                    <input type="number" class="form-control" id="plastic" placeholder="Enter amount in kilograms">
+                </div>
+                <div class="mb-3">
+                    <label for="paper" class="form-label">Paper Recycled (kg):</label>
+                    <input type="number" class="form-control" id="paper" placeholder="Enter amount in kilograms">
+                </div>
+                <div class="mb-3">
+                    <label for="glass" class="form-label">Glass Recycled (kg):</label>
+                    <input type="number" class="form-control" id="glass" placeholder="Enter amount in kilograms">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="showRecyclingChart()">Show Chart</button>
             </form>
-            <p id="recyclingResult"></p>
-        </section>
-    </main>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="recyclingChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sustainability Dashboard</p>
+    </footer>
+
     <script>
-        function calculateRecycling() {
-            const total = parseInt(document.getElementById('totalWaste').value);
-            const recycled = parseInt(document.getElementById('recycledWaste').value);
-            const efficiency = (recycled / total) * 100;
-            document.getElementById('recyclingResult').textContent = `Your recycling efficiency is ${efficiency.toFixed(2)}%.`;
+        function showRecyclingChart() {
+            const plastic = document.getElementById("plastic").value || 0;
+            const paper = document.getElementById("paper").value || 0;
+            const glass = document.getElementById("glass").value || 0;
+
+            const ctx = document.getElementById("recyclingChart").getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["Plastic", "Paper", "Glass"],
+                    datasets: [{
+                        label: "Recycling (kg)",
+                        data: [plastic, paper, glass],
+                        backgroundColor: ["#42a5f5", "#ffb74d", "#66bb6a"]
+                    }]
+                }
+            });
         }
     </script>
 </body>
